@@ -113,11 +113,11 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', agency: 'Faragh Agency', databaseConfigured: Boolean(process.env.MONGODB_URI) });
 });
 
-app.get('/api/admin/session', (req, res) => {
+app.get('/api/admin-session', (req, res) => {
   res.json({ success: true, authenticated: isAdmin(req) });
 });
 
-app.post('/api/admin/login', (req, res) => {
+app.post('/api/admin-login', (req, res) => {
   const adminPassword = process.env.ADMIN_PASSWORD;
   if (!adminPassword || !sessionSecret()) {
     return res.status(503).json({ success: false, error: 'لم يتم إعداد بيانات الإدارة على الخادم' });
@@ -150,7 +150,7 @@ app.post('/api/admin/login', (req, res) => {
   res.json({ success: true });
 });
 
-app.post('/api/admin/logout', (req, res) => {
+app.post('/api/admin-logout', (req, res) => {
   res.setHeader('Set-Cookie', 'faragh_admin_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0');
   res.json({ success: true });
 });
@@ -203,7 +203,7 @@ app.post('/api/upload', async (req, res) => {
   }
 });
 
-app.post('/api/ai/generate', requireAdmin, async (req, res) => {
+app.post('/api/ai-generate', requireAdmin, async (req, res) => {
   const prompt = typeof req.body?.prompt === 'string' ? req.body.prompt.trim() : '';
   if (!prompt || prompt.length > 5000) {
     return res.status(400).json({ success: false, error: 'النص المطلوب غير صالح' });

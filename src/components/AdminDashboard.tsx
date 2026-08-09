@@ -347,7 +347,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     setAiLoading(true);
     setAiResult('');
     try {
-      const res = await fetch('/api/ai/generate', {
+      const res = await fetch('/api/ai-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

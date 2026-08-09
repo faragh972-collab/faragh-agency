@@ -48,7 +48,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/api/admin/session')
+    fetch('/api/admin-session')
       .then((res) => res.json())
       .then((json) => setIsAuthenticated(Boolean(json.authenticated)))
       .catch(() => setIsAuthenticated(false));
@@ -103,7 +103,7 @@ export default function App() {
     e.preventDefault();
     setAuthError('');
     try {
-      const res = await fetch('/api/admin/login', {
+      const res = await fetch('/api/admin-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: passwordInput }),
