@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
-import app from './app';
+import app from './app.js';
 
 const port = Number(process.env.PORT) || 3000;
 
