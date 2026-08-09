@@ -1,0 +1,6 @@
+{
+  "name": "Faragh Agency - وكالة فراغ للتسويق الرقمي",
+  "description": "موقع وتطبيق وكالة فراغ للتسويق الرقمي مع لوحة تحكم كاملة لإدارة الخدمات، الأعمال، الفريق والشركة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

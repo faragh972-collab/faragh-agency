@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #004643;
+    --color-primary-dark: #003331;
+    --color-primary-light: #0d5f5b;
+    --color-secondary: #efece5;
+    --color-secondary-dark: #e2ddd3;
+    --color-accent: #0ff5b0;
+    --color-accent-hover: #00d898;
+  }
+
+  * {
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif !important;
+  }
+
+  html, body {
+    scroll-behavior: smooth;
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #efece5;
+}
+::-webkit-scrollbar-thumb {
+  background: #004643;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0d5f5b;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom animations and background patterns */
+.bg-agency-primary {
+  background-color: #004643;
+}
+.bg-agency-secondary {
+  background-color: #efece5;
+}
+.text-agency-primary {
+  color: #004643;
+}
+.text-agency-accent {
+  color: #0ff5b0;
+}
+.bg-agency-accent {
+  background-color: #0ff5b0;
+}
+.border-agency-accent {
+  border-color: #0ff5b0;
+}
+
+/* Glassmorphism card effects */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 70, 67, 0.12);
+}
+
+.glass-panel-dark {
+  background: rgba(0, 40, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 245, 176, 0.2);
+}
+
