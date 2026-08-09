@@ -5,8 +5,8 @@ import mongoose from 'mongoose';
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { z } from 'zod';
 import { GoogleGenAI } from '@google/genai';
-import { initialSiteData } from './src/initialData';
-import type { SiteData } from './src/types';
+import { initialSiteData } from './src/initialData.js';
+import type { SiteData } from './src/types.js';
 
 const app = express();
 app.set('trust proxy', 1);
