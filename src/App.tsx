@@ -10,6 +10,7 @@ import { PortfolioSection } from './components/PortfolioSection';
 import { WhyUsSection } from './components/WhyUsSection';
 import { TeamSection } from './components/TeamSection';
 import { ContactFooter } from './components/ContactFooter';
+import { FaqSection } from './components/FaqSection';
 import { Loader2, Lock, KeyRound, X, ShieldCheck } from 'lucide-react';
 
 const AdminDashboard = lazy(() => import('./components/AdminDashboard').then((module) => ({
@@ -81,13 +82,6 @@ export default function App() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isAuthenticated]);
-
-  // Sync document title with SEO settings
-  useEffect(() => {
-    if (siteData?.seoSettings?.metaTitle) {
-      document.title = siteData.seoSettings.metaTitle;
-    }
-  }, [siteData]);
 
   const handleOpenAdminRequest = () => {
     if (isAuthenticated) {
@@ -201,6 +195,8 @@ export default function App() {
         <TeamSection
           team={siteData.team}
         />
+
+        <FaqSection />
       </main>
 
       {/* Contact & Footer with discreet owner login */}

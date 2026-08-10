@@ -1,0 +1,11 @@
+{
+  "name": "Faragh Agency | وكالة فراغ",
+  "short_name": "Faragh",
+  "description": "شركة تسويق رقمي وتصميم وبرمجة مواقع في مصر والخليج",
+  "lang": "ar-EG",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#efece5",
+  "theme_color": "#004643"
+}
