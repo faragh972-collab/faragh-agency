@@ -12,6 +12,7 @@ import { TeamSection } from './components/TeamSection';
 import { ContactFooter } from './components/ContactFooter';
 import { FaqSection } from './components/FaqSection';
 import { Loader2, Lock, KeyRound, X, ShieldCheck } from 'lucide-react';
+import { useDynamicSeo } from './hooks/useDynamicSeo';
 
 const AdminDashboard = lazy(() => import('./components/AdminDashboard').then((module) => ({
   default: module.AdminDashboard,
@@ -27,6 +28,8 @@ export default function App() {
   const [passwordInput, setPasswordInput] = useState<string>('');
   const [authError, setAuthError] = useState<string>('');
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  useDynamicSeo(siteData);
 
   // Fetch initial site data from backend API
   useEffect(() => {
