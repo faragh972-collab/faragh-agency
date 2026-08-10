@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { AgencyInfo } from '../types';
-import { MessageCircle, Settings, Menu, X, ArrowUpLeft, Sparkles } from 'lucide-react';
+import { MessageCircle, Menu, X, ArrowUpLeft, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   agencyInfo: AgencyInfo;
-  onOpenDashboard: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ agencyInfo, onOpenDashboard }) => {
+export const Navbar: React.FC<NavbarProps> = ({ agencyInfo }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

@@ -163,7 +163,6 @@ export default function App() {
       {/* Navbar */}
       <Navbar
         agencyInfo={siteData.agencyInfo}
-        onOpenDashboard={handleOpenAdminRequest}
       />
 
       {/* Main Agency Sections */}
@@ -213,7 +212,6 @@ export default function App() {
       {/* Contact & Footer with discreet owner login */}
       <ContactFooter
         agencyInfo={siteData.agencyInfo}
-        onOpenDashboard={handleOpenAdminRequest}
       />
 
       {/* Admin Authentication Modal (Private Owner Access) */}
