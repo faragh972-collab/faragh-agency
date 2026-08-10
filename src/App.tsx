@@ -19,6 +19,7 @@ const AdminDashboard = lazy(() => import('./components/AdminDashboard').then((mo
 })));
 
 export default function App() {
+  const isAdminHostname = window.location.hostname === 'admin.faraghagency.com';
   const [siteData, setSiteData] = useState<SiteData>(initialSiteData);
   const [loading, setLoading] = useState<boolean>(true);
   const [dashboardOpen, setDashboardOpen] = useState<boolean>(false);
@@ -30,6 +31,13 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   useDynamicSeo(siteData);
+
+  useEffect(() => {
+    if (!isAdminHostname) return;
+    document.title = 'لوحة إدارة Faragh Agency';
+    const robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    robots?.setAttribute('content', 'noindex, nofollow, noarchive');
+  }, [isAdminHostname]);
 
   // Fetch initial site data from backend API
   useEffect(() => {
@@ -63,7 +71,7 @@ export default function App() {
     const checkAdminTrigger = () => {
       const hash = window.location.hash;
       const search = window.location.search;
-      if (hash === '#admin' || search.includes('admin=true')) {
+      if (isAdminHostname || hash === '#admin' || search.includes('admin=true')) {
         handleOpenAdminRequest();
       }
     };
@@ -84,7 +92,7 @@ export default function App() {
       window.removeEventListener('hashchange', checkAdminTrigger);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isAuthenticated]);
+  }, [isAuthenticated, isAdminHostname]);
 
   const handleOpenAdminRequest = () => {
     if (isAuthenticated) {
